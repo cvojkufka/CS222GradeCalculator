@@ -16,21 +16,21 @@ public class TestGradeCalculator {
     @Test
     public void testGrade_B() {
         CourseCalculator calculator = new CourseCalculator();
-        char grade = calculator.calculateGrade(6, 4, true, "None", "None", "None", "None", "Proficient", "Near Full");
+        char grade = calculator.calculateGrade(6, 4, true, "Starter", "Starter", "Starter", "Starter", "Proficient", "Near Full");
         assertEquals('B', grade);
     }
 
     @Test
     public void testGrade_C() {
         CourseCalculator calculator = new CourseCalculator();
-        char grade = calculator.calculateGrade(5, 3, true, "None", "None", "None", "None", "Starter", "Minimum");
+        char grade = calculator.calculateGrade(5, 3, true, "Starter", "Starter", "Starter", "Starter", "Starter", "Minimum");
         assertEquals('C', grade);
     }
 
     @Test
     public void testGrade_D() {
         CourseCalculator calculator = new CourseCalculator();
-        char grade = calculator.calculateGrade(4, 2, false, "None", "None", "None", "None", "Starter", "None");
+        char grade = calculator.calculateGrade(4, 2, false, "Starter", "Starter", "Starter", "Starter", "Starter", "None");
         assertEquals('D', grade);
     }
 

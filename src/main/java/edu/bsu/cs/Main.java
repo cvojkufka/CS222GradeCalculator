@@ -31,7 +31,6 @@ public class Main {
 
     public static void calculateCourseGrade() {
         CourseCalculator gradeCalculator = new CourseCalculator();
-        gradeCalculator.calculateGrade('A');
     }
 
 }
