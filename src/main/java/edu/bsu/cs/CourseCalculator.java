@@ -2,7 +2,7 @@ package edu.bsu.cs;
 
 public class CourseCalculator {
 
-    public char calculateGrade(int assignmentsMet, int achievementsMet, Boolean selfAssessmentMet,
+    public String calculateGrade(int assignmentsMet, int achievementsMet, Boolean selfAssessmentMet,
                                String firstProjectLevel, String firstProjectGUILevel,
                                String finalProject1Level, String finalProject2Level,
                                String finalProject3Level, String finalExamLevel) {
@@ -10,12 +10,18 @@ public class CourseCalculator {
         char assignmentGrade = getAssignmentGrade(assignmentsMet);
         char achievementGrade = getAchievementGrade(achievementsMet);
         //MUST take into account D grades CAN get away with no self assessment or final exam
-        char selfAssessmentGrade = (selfAssessmentMet == null) ? 'D' : (selfAssessmentMet ? 'A' : 'D');
-        char finalExamGrade = (finalExamLevel == null) ? 'D' : getFinalExamGrade(finalExamLevel);
+        if (selfAssessmentMet == null || finalExamLevel == null) {
+            return "Grade: D or F (Special Case: No Final or Midterm)";
+        }
+
+        char selfAssessmentGrade = selfAssessmentMet ? 'A' : 'D';
+        char finalExamGrade = getFinalExamGrade(finalExamLevel);
 
         char projectGrade = getProjectGrade(firstProjectLevel, firstProjectGUILevel, finalProject1Level, finalProject2Level, finalProject3Level);
 
-        return weakestLink(assignmentGrade, achievementGrade, selfAssessmentGrade, finalExamGrade, projectGrade);
+        char finalGrade = weakestLink(assignmentGrade, achievementGrade, selfAssessmentGrade, finalExamGrade, projectGrade);
+
+        return "Your final grade is: " + finalGrade;
     }
 
     private char getAssignmentGrade(int assignmentsMet) {
