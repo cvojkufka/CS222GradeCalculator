@@ -26,5 +26,13 @@ public class TestGradeCalculator {
         char grade = calculator.calculateGrade(5, 3, true, "None", "None", "None", "None", "Starter", "Minimum");
         assertEquals('C', grade);
     }
+
+    @Test
+    public void testGrade_D() {
+        CourseCalculator calculator = new CourseCalculator();
+        char grade = calculator.calculateGrade(4, 2, false, "None", "None", "None", "None", "Starter", "None");
+        assertEquals('D', grade);
+    }
+
 }
 
