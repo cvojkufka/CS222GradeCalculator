@@ -33,4 +33,5 @@ public class Main {
         CourseCalculator gradeCalculator = new CourseCalculator();
         gradeCalculator.calculateGrade('A');
     }
+
 }
