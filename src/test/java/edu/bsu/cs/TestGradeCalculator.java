@@ -3,6 +3,7 @@ package edu.bsu.cs;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestGradeCalculator {
 
@@ -39,6 +40,13 @@ public class TestGradeCalculator {
         CourseCalculator calculator = new CourseCalculator();
         char grade = calculator.calculateGrade(3, 1, false, "None", "None", "None", "None", "None", "None");
         assertEquals('F', grade);
+    }
+
+    @Test
+    public void testGrade_F_or_D() {
+        CourseCalculator calculator = new CourseCalculator();
+        char grade = calculator.calculateGrade(6, 5, true, "Starter", "Starter", "Starter", "Starter", "Starter", "None");
+        assertTrue(grade == 'D' || grade == 'F', "Expected D or F but got: " + grade);
     }
 }
 
