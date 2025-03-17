@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestGradeCalculator {
 
     @Test
-    public void testGradeA() {
+    public void testGrade_A() {
         CourseCalculator gradeCalculator = new CourseCalculator();
         char grade = gradeCalculator.calculateGrade(7, 5, true, "Starter", "Starter", "Starter", "Starter", "Master", "Full");
         assertEquals('A', grade);
@@ -20,5 +20,11 @@ public class TestGradeCalculator {
         assertEquals('B', grade);
     }
 
+    @Test
+    public void testGrade_C() {
+        CourseCalculator calculator = new CourseCalculator();
+        char grade = calculator.calculateGrade(5, 3, true, "None", "None", "None", "None", "Starter", "Minimum");
+        assertEquals('C', grade);
+    }
 }
 
