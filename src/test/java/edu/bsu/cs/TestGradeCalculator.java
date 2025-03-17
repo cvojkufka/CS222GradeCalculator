@@ -34,5 +34,11 @@ public class TestGradeCalculator {
         assertEquals('D', grade);
     }
 
+    @Test
+    public void testGrade_F() {
+        CourseCalculator calculator = new CourseCalculator();
+        char grade = calculator.calculateGrade(3, 1, false, "None", "None", "None", "None", "None", "None");
+        assertEquals('F', grade);
+    }
 }
 
